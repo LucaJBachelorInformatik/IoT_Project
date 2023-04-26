@@ -14,7 +14,7 @@ with open("output.txt", "r") as file:
         else:
             print(", {", entry, "}", sep='', end='')
     print()
-
+    # Test
     for line in file:
         if line not in ['\n', '\r\n']:
             json_object = json.loads(line)
