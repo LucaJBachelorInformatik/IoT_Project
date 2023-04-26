@@ -2,7 +2,7 @@ import json
 
 while True:
     with open("output.txt", "r") as file:
-        requestedID = input("Input all Prover IDs you would like to see, separated by commas.\nAlternatively, "
+        requestedID = input("Input all Provider IDs you would like to see, separated by commas.\nAlternatively, "
                             "type 'q' or 'quit' to quit.\n").split(',', -1)
         if requestedID[0].lower() == "quit" or requestedID[0].lower() == "q":
             exit(0)
