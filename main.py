@@ -18,7 +18,7 @@ while True:
                 firstMessage = False
             else:
                 print(", {", entry, "}", sep='', end='')
-        print()
+        print("\n")
         for line in file:
             if line not in ['\n', '\r\n']:
                 json_object = json.loads(line)
