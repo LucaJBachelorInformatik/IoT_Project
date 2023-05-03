@@ -2,11 +2,14 @@ import json
 from datetime import datetime
 
 _format = "%Y-%m-%dT%H:%M:%S.%fZ"
+
 while True:
+
     is_first_message = True
     datetime_last_update = None
     position_last_update = None
     is_position_changed = True
+
     with open("output.txt", "r") as file:
         is_correct_id = False
         while not is_correct_id:
@@ -24,11 +27,11 @@ while True:
                 is_correct_id = True
 
         print("Checking for Prover ID(s): \n", end='')
-        firstMessage = True
+        is_first_entry = True
         for entry in requestedID:
-            if firstMessage:
+            if is_first_entry:
                 print("{", entry, "}", sep='', end='')
-                firstMessage = False
+                is_first_entry = False
             else:
                 print(", {", entry, "}", sep='', end='')
         print("\n")
@@ -50,14 +53,13 @@ while True:
                         if is_first_message or is_position_changed:
                             print("Coordinates X,Y,Z: ", end="")
                             print(json_object[0]["position"]["coordinates"])
-                            print("Generated : " + datetime_generated.__str__())
-                            print("Sent : " + datetime_sent.__str__())
+                            print("Generated: " + datetime_generated.__str__())
+                            print("Sent: " + datetime_sent.__str__())
                             print("Time Difference between 'Generated' and 'Sent': " +
                                   time_difference_generated_sent.total_seconds().__str__())
                             position_last_update = json_object[0]["position"]["coordinates"]
                             if not is_first_message:
                                 time_difference_updates = datetime_generated - datetime_last_update
-
                                 print("Time Difference between this and the last update: "
                                       + time_difference_updates.total_seconds().__str__(), end="\n\n")
                             else:
