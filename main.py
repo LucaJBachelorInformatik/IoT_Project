@@ -60,7 +60,7 @@ while True:
                             position_last_update = json_object[0]["position"]["coordinates"]
                             if not is_first_message:
                                 time_difference_updates = datetime_generated - datetime_last_update
-                                print("Time Difference between this and the last update: "
+                                print("Time Difference between this and the last update / location change: "
                                       + time_difference_updates.total_seconds().__str__(), end="\n\n")
                             else:
                                 is_first_message = False
